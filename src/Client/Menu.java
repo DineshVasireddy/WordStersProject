@@ -34,8 +34,8 @@ public class Menu extends JPanel {
         message = "";
 
         //Play button
-        playButton = new JButton("PLAY");
-        playButton.setBounds(250, 175, 100, 50);
+        playButton = new JButton("SINGLE-PLAYER");
+        playButton.setBounds(540, 175, 200, 50);
         playButton.setBackground(Color.DARK_GRAY);
         playButton.setForeground(Color.CYAN);
         playButton.setFocusPainted(false);
@@ -43,8 +43,8 @@ public class Menu extends JPanel {
         playButton.addActionListener(a -> m.setPanel(new Singleplayer(m)));
 
         //Connect button
-        connectButton = new JButton("CONNECT");
-        connectButton.setBounds(250, 540, 100, 50);
+        connectButton = new JButton("LOCAL-MULTIPLAYER");
+        connectButton.setBounds(540, 240, 200, 50);
         connectButton.setBackground(Color.DARK_GRAY);
         connectButton.setForeground(Color.CYAN);
         connectButton.setFocusPainted(false);
@@ -103,34 +103,34 @@ public class Menu extends JPanel {
         });
 
         //Lobby code field
-        codeField = new JTextField();
-        codeField.setBounds(225, 420, 150, 25);
-        codeField.setBackground(Color.LIGHT_GRAY);
-        codeField.setFont(TEXTFONT);
-        codeField.setHorizontalAlignment(JTextField.CENTER);
+        // codeField = new JTextField();
+        // codeField.setBounds(225, 420, 150, 25);
+        // codeField.setBackground(Color.LIGHT_GRAY);
+        // codeField.setFont(TEXTFONT);
+        // codeField.setHorizontalAlignment(JTextField.CENTER);
 
         //Server IP field
-        ipField = new JTextField();
-        ipField.setBounds(200, 345, 200, 25);
-        ipField.setBackground(Color.LIGHT_GRAY);
-        ipField.setFont(TEXTFONT);
-        ipField.setHorizontalAlignment(JTextField.CENTER);
+        // ipField = new JTextField();
+        // ipField.setBounds(200, 345, 200, 25);
+        // ipField.setBackground(Color.LIGHT_GRAY);
+        // ipField.setFont(TEXTFONT);
+        // ipField.setHorizontalAlignment(JTextField.CENTER);
 
         //User name field
-        nameField = new JTextField();
-        nameField.setBounds(250, 488, 100, 25);
-        nameField.setBackground(Color.LIGHT_GRAY);
-        nameField.setFont(TEXTFONT);
-        nameField.setHorizontalAlignment(JTextField.CENTER);
+        // nameField = new JTextField();
+        // nameField.setBounds(250, 488, 100, 25);
+        // nameField.setBackground(Color.LIGHT_GRAY);
+        // nameField.setFont(TEXTFONT);
+        // nameField.setHorizontalAlignment(JTextField.CENTER);
 
         //Setting panel's size and adding buttons/fields to it
-        this.setPreferredSize(new Dimension(600, 650));
+        this.setPreferredSize(new Dimension(1280, 720));
         this.setLayout(null);
         this.add(playButton);
         this.add(connectButton);
-        this.add(codeField);
-        this.add(ipField);
-        this.add(nameField);
+        // this.add(codeField);
+        // this.add(ipField);
+        // this.add(nameField);
     }
 
     //Paint method to draw background and text
@@ -140,17 +140,17 @@ public class Menu extends JPanel {
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         g2.setColor(Color.BLACK);
-        g2.fillRect(0, 0, 600, 650);
+        g2.fillRect(0, 0, 1280, 720);
         g2.setFont(TITLEFONT);
         g2.setColor(Color.WHITE);
-        g2.drawString("Wordle", 300 - g2.getFontMetrics().stringWidth("Wordle") / 2, 75);
-        g2.setFont(NAMEFONT);
-        g2.drawString("Singleplayer", 300 - g2.getFontMetrics().stringWidth("Singleplayer") / 2, 150);
-        g2.drawString("Multiplayer", 300 - g2.getFontMetrics().stringWidth("Multiplayer") / 2, 300);
-        g2.setFont(TEXTFONT);
-        g2.drawString("Server IP", 300 - g2.getFontMetrics().stringWidth("Server IP") / 2, 335);
-        g2.drawString("Lobby Code", 300 - g2.getFontMetrics().stringWidth("Lobby Code") / 2, 410);
-        g2.drawString("IGN", 300 - g2.getFontMetrics().stringWidth("IGN") / 2, 480);
+        g2.drawString("WordStars", 640 - g2.getFontMetrics().stringWidth("WordStars") / 2, 55);
+        // g2.setFont(NAMEFONT);
+        // g2.drawString("Singleplayer", 300 - g2.getFontMetrics().stringWidth("Singleplayer") / 2, 150);
+        // g2.drawString("Multiplayer", 300 - g2.getFontMetrics().stringWidth("Multiplayer") / 2, 300);
+        // g2.setFont(TEXTFONT);
+        // g2.drawString("Server IP", 300 - g2.getFontMetrics().stringWidth("Server IP") / 2, 335);
+        // g2.drawString("Lobby Code", 300 - g2.getFontMetrics().stringWidth("Lobby Code") / 2, 410);
+        // g2.drawString("IGN", 300 - g2.getFontMetrics().stringWidth("IGN") / 2, 480);
 
         //Drawing message
         //Checking if message is an error
@@ -159,6 +159,6 @@ public class Menu extends JPanel {
         } else {
             g2.setColor(Color.GREEN);
         }
-        g2.drawString(message, 300 - g2.getFontMetrics().stringWidth(message) / 2, 625);
+        g2.drawString(message, 640 - g2.getFontMetrics().stringWidth(message) / 2, 625);
     }
 }

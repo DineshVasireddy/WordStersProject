@@ -40,8 +40,8 @@ public class Main extends JFrame {
         });
 
         //Setting JFrame's properties
-        setTitle("Wordle");
-        setResizable(false);
+        setTitle("WordStars");
+        setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setIconImage(new ImageIcon(getClass().getResource("/resources/icon.png")).getImage());
         getContentPane().add(new Menu(this));

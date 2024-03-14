@@ -51,7 +51,7 @@ public class Singleplayer extends JPanel {
 
                     //User tries to make a guess by pressing enter
                     //Making sure guess is long enough
-                    } else if (guess.length() == 5) {
+                    } else if (guess.length() == 6) {
 
                         //Making sure guess is a valid word
                         if (main.isValidWord(guess.toLowerCase())) {
@@ -60,7 +60,7 @@ public class Singleplayer extends JPanel {
                             repaint();
                         } else {
                             showError = true;
-                            errorRow = (int) Math.ceil(currentSlot / 5) - 1;
+                            errorRow = (int) Math.ceil(currentSlot / 6) - 1;
                             repaint();
                         }
                     }
@@ -83,8 +83,8 @@ public class Singleplayer extends JPanel {
                     //User pressed a letter
                     } else if (Character.isAlphabetic(e.getKeyChar())) {
 
-                        //Checking user hasn't already put 5 letters
-                        if (guess.length() < 5) {
+                        //Checking user hasn't already put 6 letters
+                        if (guess.length() < 6) {
 
                             //Adding letter to user's guess
                             guess = (guess + e.getKeyChar()).toUpperCase();
@@ -112,9 +112,9 @@ public class Singleplayer extends JPanel {
         //Getting word user has to guess
         try {
             word = main.getWord().toUpperCase();
-            System.out.println(word);
+            // For Testing
+            System.out.println(word); 
         } catch (Exception e) {
-
             e.printStackTrace();
         }
 
@@ -126,20 +126,20 @@ public class Singleplayer extends JPanel {
         char[] wordChars = word.toCharArray();
 
         //Checking for any letters that are in the correct spot (green)
-        for (int i = 1; i < 6; i++) {
+        for (int i = 1; i < 7; i++) {
 
-           if (slots[currentSlot - i].getLetter().charAt(0) == wordChars[5 - i]) {
+           if (slots[currentSlot - i].getLetter().charAt(0) == wordChars[6 - i]) {
                slots[currentSlot - i].setState(3);
                letters.setLetterState(slots[currentSlot - i].getLetter().charAt(0), 3);
-               wordChars[5 - i] = '?';
+               wordChars[6 - i] = '?';
            }
 
         }
 
         //Checking for letters that are in the word but not at the correct spot
-        for (int i = 1; i < 6; i++) {
+        for (int i = 1; i < 7; i++) {
 
-            for (int y = 0; y < 5; y++) {
+            for (int y = 0; y < 6; y++) {
 
                  if (slots[currentSlot - i].getState() != 3 && slots[currentSlot - i].getState() != 2 && slots[currentSlot - i].getLetter().charAt(0) == wordChars[y]) {
                      slots[currentSlot - i].setState(2);
@@ -169,16 +169,17 @@ public class Singleplayer extends JPanel {
     //Method to initialize slots
     public void setSlots() {
         int i = 0;
-
+    
         for (int row = 0; row < 6; row++) {
-
-            for (int column = 0; column < 5; column++) {
-
-                slots[i] = new Slot(165 + (column * 50) + (column * 5), 150 + (row * 50) + (row * 5));
-                i++;
+            for (int column = 0; column < 6; column++) { // Adjust column limit to 6
+                if (i < slots.length) {
+                    slots[i] = new Slot(150 + (column * 50) + (column * 5), 150 + (row * 50) + (row * 5));
+                    i++;
+                }
             }
         }
     }
+    
 
     //Method to draw screen
     @Override
